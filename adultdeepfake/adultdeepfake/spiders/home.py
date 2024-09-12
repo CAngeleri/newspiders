@@ -1,11 +1,10 @@
 """
-run spider
-    cd newspiders/adultdeepfake
-    run command "scrapy crawl adultdeepfake"
-    output : 
-        display Json obj in terminal 
-        save doc to output.json
-
+    How to run spider : 
+        cd newspiders/adultdeepfake
+        run command "scrapy crawl adultdeepfake"
+        output : 
+            display Json obj in terminal 
+            save doc to output.json
 """
 
 import scrapy
@@ -27,7 +26,7 @@ class AdultdeepfakeSpider(scrapy.Spider):
         yield scrapy.Request(start_url, self.parse)
 
     def parse(self, response):
-        # Check if main-container exists using XPath
+        # Check if main-container exists
         main_container = response.xpath('/html/body/div[2]/div[3]/div[1]/div[contains(@class, "main-container")]')
         if main_container:
             self.logger.info("🕊️ Found the main-container")
