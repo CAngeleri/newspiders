@@ -45,7 +45,7 @@ class AdultdeepfakeSpider(scrapy.Spider):
                     video_url = urljoin(response.url, video.xpath('.//a/@href').get(default='No URL'))
                     date_found = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
                     image_url = video.xpath('.//a/div/img/@src').get(default='No Image URL')
-                    domain =  "https://adultdeepfakes.com/top-rated/"
+                    domain =  "https://adultdeepfakes.com/"
 
                     yield {
                         'id': self.index,
