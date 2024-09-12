@@ -96,7 +96,7 @@ FEED_EXPORT_ENCODING = "utf-8"
 FEEDS = {
     'output.json': {
         'format': 'json',
-        'overwrite': True,  # Set to True to overwrite the file if it already exists
+        'overwrite': True,  
         'indent': 4,        # Optional: Pretty-print JSON with an indent of 4 spaces
     },
 }

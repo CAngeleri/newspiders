@@ -1,15 +1,24 @@
+"""
+run spider
+    cd newspiders/adultdeepfake
+    run command "scrapy crawl adultdeepfake"
+    output : 
+        display Json obj in terminal 
+        save doc to output.json
+
+"""
+
 import scrapy
 from urllib.parse import urljoin
 from datetime import datetime
 
-class DeepfakesSpider(scrapy.Spider):
-    name = "deepfakes"
-    
+class AdultdeepfakeSpider(scrapy.Spider):
+    name = "adultdeepfake"
     index = 1
     max_items = 300 
 
     def __init__(self, *args, **kwargs):
-        super(DeepfakesSpider, self).__init__(*args, **kwargs)
+        super(AdultdeepfakeSpider, self).__init__(*args, **kwargs)
         # Record the start time
         self.start_time = datetime.now()
 
