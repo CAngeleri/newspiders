@@ -5,10 +5,8 @@ from datetime import datetime
 class DeepfakesSpider(scrapy.Spider):
     name = "deepfakes"
     
-    page_counter = 0
-    max_pages = 10
     index = 1
-    max_items = 100  # Example limit, adjust as needed
+    max_items = 300 
 
     def __init__(self, *args, **kwargs):
         super(DeepfakesSpider, self).__init__(*args, **kwargs)
@@ -43,17 +41,21 @@ class DeepfakesSpider(scrapy.Spider):
                         'index': self.index,
                         'title': title,
                         'video_url': video_url,
-                        'image_url' : image_url,
+                        'image_url': urljoin(response.url, image_url),
                         'date_found': date_found
                     }
                     self.index += 1
 
-                # Simulate clicking the "Load More" button
+                # Check if the "Load More" button or next page link exists
                 next_page = response.xpath('//*[@id="list_videos_common_videos_list_pagination"]/div/ul/li[14]/a/@href').get()
-                if next_page and self.index < self.max_items:
+                if next_page or main_container:
                     next_page_url = urljoin(response.url, next_page)
                     yield scrapy.Request(next_page_url, callback=self.parse)
                     
+            else:
+                self.logger.info("❌ video list not found")
+                print("❌ video list not found")
+
         else:
             self.logger.info("❌ main-container not found")
             print("❌ main-container not found")
