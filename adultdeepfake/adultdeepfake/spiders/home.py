@@ -58,13 +58,13 @@ class AdultdeepfakeSpider(scrapy.Spider):
 
                 # Check if the "Load More" button or next page link exists
                 next_page = response.xpath('//*[@id="list_videos_common_videos_list_pagination"]/div/ul/li[14]/a/@href').get()
-                if next_page or main_container:
+                
+                if next_page :
                     next_page_url = urljoin(response.url, next_page)
+                    self.logger.info(f"🔗 Found next page URL: {next_page_url}")
                     yield scrapy.Request(next_page_url, callback=self.parse)
-                    
-            else:
-                self.logger.info("❌ video list not found")
-                print("❌ video list not found")
+                else:
+                    self.logger.info("❌ Next page fragment or URL not found")
 
         else:
             self.logger.info("❌ main-container not found")
