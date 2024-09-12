@@ -91,3 +91,12 @@ ROBOTSTXT_OBEY = True
 REQUEST_FINGERPRINTER_IMPLEMENTATION = "2.7"
 TWISTED_REACTOR = "twisted.internet.asyncioreactor.AsyncioSelectorReactor"
 FEED_EXPORT_ENCODING = "utf-8"
+
+# Configure the FEEDS setting to export data to JSON
+FEEDS = {
+    'output.json': {
+        'format': 'json',
+        'overwrite': True,  # Set to True to overwrite the file if it already exists
+        'indent': 4,        # Optional: Pretty-print JSON with an indent of 4 spaces
+    },
+}
