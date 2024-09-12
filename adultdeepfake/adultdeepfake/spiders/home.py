@@ -18,7 +18,6 @@ class AdultdeepfakeSpider(scrapy.Spider):
 
     def __init__(self, *args, **kwargs):
         super(AdultdeepfakeSpider, self).__init__(*args, **kwargs)
-        # Record the start time
         self.start_time = datetime.now()
 
     def start_requests(self):
@@ -71,7 +70,6 @@ class AdultdeepfakeSpider(scrapy.Spider):
             print("❌ main-container not found")
 
     def closed(self, reason):
-        # Record the end time and calculate runtime
         end_time = datetime.now()
         runtime = end_time - self.start_time
         self.logger.info(f"🍐🍐🍐🍐🍐🍐🍐🍐🍐 Spider closed after {runtime}")
