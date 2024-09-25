@@ -7,21 +7,9 @@ from scrapy import signals
 
 # useful for handling different item types with a single interface
 from itemadapter import is_item, ItemAdapter
-from proxy_data import proxy_rotation
-import logging
 
 
-class ProxyMiddleware:
-    def process_request(self, request, spider):
-        try:
-            rotated_proxy = proxy_rotation()
-            request.meta["proxy"] = rotated_proxy
-        # logging.info(f"Proxy assigned: {rotated_proxy} for request: {request.url}")
-        except Exception as e:
-            logging.error(f"Error assigning proxy for {request.url}: {e}")
-
-
-class AdultdeepfakeSpiderMiddleware:
+class BigpornSpiderMiddleware:
     # Not all methods need to be defined. If a method is not defined,
     # scrapy acts as if the spider middleware does not modify the
     # passed objects.
@@ -68,7 +56,7 @@ class AdultdeepfakeSpiderMiddleware:
         spider.logger.info("Spider opened: %s" % spider.name)
 
 
-class AdultdeepfakeDownloaderMiddleware:
+class BigpornDownloaderMiddleware:
     # Not all methods need to be defined. If a method is not defined,
     # scrapy acts as if the downloader middleware does not modify the
     # passed objects.
