@@ -7,7 +7,8 @@
             save doc to output.json
 """
 
-import scrapy
+import scrapyd
+import scrapydweb
 from urllib.parse import urljoin
 from datetime import datetime
 
