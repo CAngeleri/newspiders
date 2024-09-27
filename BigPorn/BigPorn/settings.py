@@ -12,6 +12,9 @@ BOT_NAME = "BigPorn"
 SPIDER_MODULES = ["BigPorn.spiders"]
 NEWSPIDER_MODULE = "BigPorn.spiders"
 
+FEED_FORMAT = "json"
+FEED_URI = "output.json"
+FEED_EXPORT_INDENT = 4 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = "BigPorn (+http://www.yourdomain.com)"
@@ -91,3 +94,36 @@ ROBOTSTXT_OBEY = True
 REQUEST_FINGERPRINTER_IMPLEMENTATION = "2.7"
 TWISTED_REACTOR = "twisted.internet.asyncioreactor.AsyncioSelectorReactor"
 FEED_EXPORT_ENCODING = "utf-8"
+
+
+# DOWNLOADER_MIDDLEWARES_BASE = {
+#     # Engine side
+#     'scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware': 100,
+#     'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware': 300,
+#     'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware': 350,
+#     'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware': 400,
+#     'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware': 500,
+#     'scrapy.downloadermiddlewares.retry.RetryMiddleware': 550,
+#     'scrapy.downloadermiddlewares.ajaxcrawl.AjaxCrawlMiddleware': 560,
+#     'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware': 580,
+#     'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware': 590,
+#     'scrapy.downloadermiddlewares.redirect.RedirectMiddleware': 600,
+#     'scrapy.downloadermiddlewares.cookies.CookiesMiddleware': 700,
+#     'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware': 750,
+#     'scrapy.downloadermiddlewares.stats.DownloaderStats': 850,
+#     'scrapy.downloadermiddlewares.httpcache.HttpCacheMiddleware': 900,
+#     # Downloader side
+# }
+
+
+# ## settings.py
+
+# PROXY_USER = 'username'
+# PROXY_PASSWORD = 'password'
+# PROXY_ENDPOINT = 'proxy.proxyprovider.com'
+# PROXY_PORT = '8000'
+
+# DOWNLOADER_MIDDLEWARES = { 
+#     'myproject.middlewares.MyProxyMiddleware': 350, 
+# }
+

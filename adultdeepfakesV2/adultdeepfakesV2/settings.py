@@ -12,10 +12,10 @@ BOT_NAME = "adultdeepfakeV2"
 SPIDER_MODULES = ["adultdeepfakeV2.spiders"]
 NEWSPIDER_MODULE = "adultdeepfakeV2.spiders"
 
-from proxy_data import start_proxy_scheduler
+# from proxy_data import start_proxy_scheduler
 
-# Start the proxy scheduler
-start_proxy_scheduler()
+# # Start the proxy scheduler
+# start_proxy_scheduler()
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
