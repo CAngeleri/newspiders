@@ -36,16 +36,12 @@ class NewestSpider(scrapy.Spider):
         ).get()
         tags_list = tags.split(",")
 
-        # Extract embedded URL (already in the previous code)
         video_url = response.xpath('//meta[@name="twitter:player"]/@content').get()
         if not video_url:
-            # Fallback: try to extract an MP4 video file directly from the page if possible
             video_url = response.xpath('//video/source/@src').get()
-        
-        # If there's no direct video URL, try to get the link from a fallback player
+
         if not video_url:
             video_url = response.xpath('//iframe[@id="player"]/@src').get()
-            # Sometimes an iframe might load the video externally, so follow the iframe URL
             if video_url:
                 video_url = response.urljoin(video_url)
 
@@ -53,7 +49,6 @@ class NewestSpider(scrapy.Spider):
         page_url = response.url
         date_scrapped = datetime.datetime.now()
 
-        # Make sure we have a valid video URL before yielding
         if video_url:
             data_object = {
                 "title": title,
